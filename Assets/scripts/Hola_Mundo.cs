@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Diagnostics;
 
-public class HiWorld : MonoBehaviour {
+public class Hola_Mundo : MonoBehaviour {
 
 	private string message;
 
@@ -16,6 +17,7 @@ public class HiWorld : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		text.text = HolaMundo ();
 
 	}
 
@@ -23,7 +25,12 @@ public class HiWorld : MonoBehaviour {
 		//Me voy a tomar un cafe, que el hola mundo entregue la hora actual y 
 		//según la hora, diga buenos días mundo, 
 		//buenas tarde o buenas noches
-		message="Buenas tardes Mundo";
+		if (System.DateTime.Now.Hour > 12 && System.DateTime.Now.Hour < 20)
+			message="Buenas tardes Mundo";
+		if (System.DateTime.Now.Hour > 20 || System.DateTime.Now.Hour < 6)
+			message= "Buenas Noches Mundo";
+		if (System.DateTime.Now.Hour > 6 && System.DateTime.Now.Hour < 12)
+			message= "Buenos Dias Mundo";
 		return message;
 	}
 }
